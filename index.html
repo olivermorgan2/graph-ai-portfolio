@@ -1,0 +1,165 @@
+<!-- Oliver Morgan – Generative AI for Work & Research  |  One‑page portfolio site -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generative AI for Work & Research · Oliver Morgan</title>
+  <style>
+    /* ====== CSS RESET ====== */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#f9f9f9;background:#0f0e17}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+
+    /* ====== GLOBAL COLOURS & UTILS ====== */
+    :root{
+      --purple:#6e02ff;
+      --pink:#ff4f9e;
+      --blue:#0078ff; /* button idle */
+      --green:#28a745; /* button hover */
+      --card-bg:#16161f;
+    }
+    section{padding:4rem 1rem;max-width:1150px;margin-inline:auto}
+    h1,h2,h3{font-weight:700;letter-spacing:.5px}
+    h1{font-size:clamp(1.8rem,4vw,3rem);margin-bottom:.25rem}
+    h2{font-size:clamp(1.4rem,3vw,2.25rem);margin-bottom:1rem}
+
+    /* ====== HERO ====== */
+    #hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:4rem;padding-bottom:2rem;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;position:relative;overflow:hidden}
+    #hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,#ffffff15 0%,#ffffff05 60%,transparent 80%);pointer-events:none}
+    #hero img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid #fff;margin-bottom:1rem;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+
+    /* ====== NAVIGATION (now below title) ====== */
+    nav{margin-top:1rem}
+    nav ul{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap;justify-content:center}
+    nav a{padding:.5rem 1rem;border-radius:999px;background:#ffffff25;color:#fff;font-weight:600;transition:background .3s}
+    nav a:hover{background:#ffffff40}
+
+    /* ====== ABOUT ME ====== */
+    #about{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    #about .card{background:var(--card-bg);padding:2rem;border-radius:1rem;box-shadow:0 4px 12px rgba(0,0,0,.35)}
+
+    /* ====== COURSE MODULES ====== */
+    #course .modules{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .module{background:var(--card-bg);padding:1.5rem;border-radius:1rem;position:relative;overflow:hidden;cursor:pointer;transition:transform .3s}
+    .module:hover{transform:translateY(-6px)}
+    .module h3{margin-bottom:.5rem;font-size:1.125rem;color:var(--purple)}
+    .module p{font-size:.9rem;color:#c7c7c7}
+
+    /* Tooltip / call‑out */
+    .tooltip{position:absolute;bottom:110%;left:50%;transform:translate(-50%,10px);background:#fff;color:#333;padding:.75rem 1rem;border-radius:.75rem;box-shadow:0 4px 12px rgba(0,0,0,.25);opacity:0;pointer-events:none;width:220px;transition:opacity .3s,transform .3s;font-size:.85rem;line-height:1.4;z-index:10}
+    .module:hover .tooltip{opacity:1;transform:translate(-50%,0)}
+
+    /* ====== WEEKLY SUBMISSIONS ====== */
+    #submissions .week-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+    .btn-week{display:inline-block;padding:.75rem 1rem;border:none;border-radius:.75rem;font-weight:600;text-align:center;background:var(--blue);color:#fff;cursor:pointer;transition:background .3s,transform .3s}
+    .btn-week:hover{background:var(--green);transform:translateY(-3px)}
+
+    /* ====== SMOOTH SCROLL ====== */
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+<body>
+  <!-- ========== HERO ========== -->
+  <header id="hero">
+    <img src="Morgan_Bio_Photo_Current.jpg" alt="Portrait of Oliver Morgan" />
+    <h1>Oliver Morgan</h1>
+    <h2>Generative AI for Work & Research</h2>
+
+    <!-- NAVIGATION placed below titles -->
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#course">About the Course</a></li>
+        <li><a href="#submissions">Weekly Submissions</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========== ABOUT ME ========== -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>Seasoned data‑driven strategist with 15+ years leading analytics and innovation initiatives across tech and research domains. Passionate about translating cutting‑edge AI into practical workflow improvements. Proven record of delivering data products, crafting evidence‑based insights for executive decision‑making, and mentoring teams at the intersection of data science and business value.</p>
+    </div>
+  </section>
+
+  <!-- ========== COURSE OVERVIEW ========== -->
+  <section id="course">
+    <h2>About the Course</h2>
+    <p>This immersive 8‑week journey equips professionals and researchers to harness Generative AI for automating analysis, content creation, knowledge management and more. Each hands‑on module combines live workshops, guided projects, and peer feedback, culminating in a capstone solution tailored to your workflow.</p>
+
+    <div class="modules">
+      <!-- Module 1 -->
+      <div class="module">
+        <h3>Documents, Presentations & Websites</h3>
+        <p>Create high‑quality reports, papers, and no‑code sites with LLMs.</p>
+        <div class="tooltip">Generate polished documents, slide decks, and websites using prompt engineering, Markdown, and AI design tools.</div>
+      </div>
+      <!-- Module 2 -->
+      <div class="module">
+        <h3>Automated Data Analysis</h3>
+        <p>Clean, visualize & report data with ChatGPT Code Interpreter, Julius & Windsurf.</p>
+        <div class="tooltip">Master AI‑powered data wrangling, visualization dashboards, and automated reporting pipelines.</div>
+      </div>
+      <!-- Module 3 -->
+      <div class="module">
+        <h3>GenAI for Research & Text Analysis</h3>
+        <p>AI‑assisted literature reviews, summarization, sentiment & text classification.</p>
+        <div class="tooltip">Leverage Elicit, LiteRev, and custom models for knowledge synthesis and deep text insights.</div>
+      </div>
+      <!-- Module 4 -->
+      <div class="module">
+        <h3>Custom GPTs & Chatbots</h3>
+        <p>Design RAG systems and API‑integrated assistants for your team.</p>
+        <div class="tooltip">Build domain‑specific chatbots with knowledge bases and Botpress workflows.</div>
+      </div>
+      <!-- Module 5 -->
+      <div class="module">
+        <h3>AI Workflows & Task Automation</h3>
+        <p>Reclaim hours by integrating Lindy, Make.com & Gmail API.</p>
+        <div class="tooltip">Automate repetitive tasks, email triage, and cross‑platform actions with no‑code orchestration.</div>
+      </div>
+      <!-- Module 6 -->
+      <div class="module">
+        <h3>GenAI for Communication & Outreach</h3>
+        <p>Create impactful visuals, videos, and marketing assets.</p>
+        <div class="tooltip">Use Ideogram, InVideo, and AI‑driven content scheduling for brand awareness.</div>
+      </div>
+      <!-- Module 7 -->
+      <div class="module">
+        <h3>Capstone Project & Showcase</h3>
+        <p>Design, build & present a real‑world AI solution.</p>
+        <div class="tooltip">Scope your project, integrate multiple tools, and demo results to peers.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WEEKLY SUBMISSIONS ========== -->
+  <section id="submissions">
+    <h2>My Weekly Submissions</h2>
+    <p>Links will appear as each assignment is completed.</p>
+    <div class="week-grid">
+      <button class="btn-week" disabled>Week 1</button>
+      <button class="btn-week" disabled>Week 2</button>
+      <button class="btn-week" disabled>Week 3</button>
+      <button class="btn-week" disabled>Week 4</button>
+      <button class="btn-week" disabled>Week 5</button>
+      <button class="btn-week" disabled>Week 6</button>
+      <button class="btn-week" disabled>Week 7</button>
+      <button class="btn-week" disabled>Week 8</button>
+    </div>
+  </section>
+
+  <!-- ========== JS FOR SMALL INTERACTIONS ========== -->
+  <script>
+    // Elevate hero on scroll (subtle parallax)
+    const hero = document.getElementById('hero');
+    window.addEventListener('scroll', () => {
+      const offset = window.pageYOffset;
+      hero.style.backgroundPositionY = offset * 0.4 + 'px';
+    });
+  </script>
+</body>
+</html>
