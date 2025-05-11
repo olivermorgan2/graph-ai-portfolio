@@ -20,29 +20,24 @@
       --green:#28a745; /* button hover */
       --card-bg:#16161f;
     }
-    section{padding:3rem 1rem;max-width:1150px;margin-inline:auto}
+    section{padding:4rem 1rem;max-width:1150px;margin-inline:auto}
     h1,h2,h3{font-weight:700;letter-spacing:.5px}
     h1{font-size:clamp(1.8rem,4vw,3rem);margin-bottom:.25rem}
     h2{font-size:clamp(1.4rem,3vw,2.25rem);margin-bottom:1rem}
 
     /* ====== HERO ====== */
-    #hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:4rem;padding-bottom:2rem;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;position:relative;overflow:hidden}
+    #hero{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:2rem;padding-top:4rem;padding-bottom:2rem;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;position:relative;overflow:hidden;text-align:left}
     #hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,#ffffff15 0%,#ffffff05 60%,transparent 80%);pointer-events:none}
-    #hero img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid #fff;margin-bottom:1rem;box-shadow:0 8px 20px rgba(0,0,0,.25)}
-
-    /* ====== NAVIGATION (now below title) ====== */
+    #hero img{width:225px;height:225px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+    .hero-content{display:flex;flex-direction:column;align-items:flex-start}
     nav{margin-top:1rem}
-    nav ul{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap;justify-content:center}
+    nav ul{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap;justify-content:flex-start}
     nav a{padding:.5rem 1rem;border-radius:999px;background:#ffffff25;color:#fff;font-weight:600;transition:background .3s}
     nav a:hover{background:#ffffff40}
 
-    /* ====== ABOUT ME ====== */
-    #about{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    #about .card{background:var(--card-bg);padding:2rem;border-radius:1rem;box-shadow:0 4px 12px rgba(0,0,0,.35)}
-
     /* ====== COURSE MODULES ====== */
     #course .modules{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .module{background:var(--card-bg);padding:1.5rem;border-radius:1rem;position:relative;overflow:hidden;cursor:pointer;transition:transform .3s}
+    .module{background:var(--card-bg);padding:1.5rem;border-radius:1rem;position:relative;overflow:visible;cursor:pointer;transition:transform .3s}
     .module:hover{transform:translateY(-6px)}
     .module h3{margin-bottom:.5rem;font-size:1.125rem;color:var(--purple)}
     .module p{font-size:.9rem;color:#c7c7c7}
@@ -52,37 +47,47 @@
     .module:hover .tooltip{opacity:1;transform:translate(-50%,0)}
 
     /* ====== WEEKLY SUBMISSIONS ====== */
-    #submissions .week-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+    #submissions .week-grid{display:grid;gap:1rem;grid-template-columns:repeat(4,minmax(150px,1fr))}
     .btn-week{display:inline-block;padding:.75rem 1rem;border:none;border-radius:.75rem;font-weight:600;text-align:center;background:var(--blue);color:#fff;cursor:pointer;transition:background .3s,transform .3s}
     .btn-week:hover{background:var(--green);transform:translateY(-3px)}
 
+    /* ====== FOOTER ====== */
+    footer{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;text-align:center;padding:1rem 0;font-size:.875rem}
+
     /* ====== SMOOTH SCROLL ====== */
     html{scroll-behavior:smooth}
+
+    @media(max-width:600px){
+      #hero{flex-direction:column;align-items:center;text-align:center}
+      .hero-content{align-items:center}
+      nav ul{justify-content:center}
+      #submissions .week-grid{grid-template-columns:repeat(2,minmax(140px,1fr))}
+    }
   </style>
 </head>
 <body>
   <!-- ========== HERO ========== -->
   <header id="hero">
     <img src="Morgan_Bio_Photo_Current.jpg" alt="Portrait of Oliver Morgan" />
-    <h1>Oliver Morgan</h1>
-    <h2>Generative AI for Work & Research</h2>
+    <div class="hero-content">
+      <h1>Oliver Morgan</h1>
+      <h2>Generative AI for Work & Research</h2>
 
-    <!-- NAVIGATION placed below titles -->
-    <nav>
-      <ul>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#course">About the Course</a></li>
-        <li><a href="#submissions">Weekly Submissions</a></li>
-      </ul>
-    </nav>
+      <!-- NAVIGATION placed below titles -->
+      <nav>
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#course">About the Course</a></li>
+          <li><a href="#submissions">Weekly Submissions</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <!-- ========== ABOUT ME ========== -->
   <section id="about">
     <h2>About Me</h2>
-    <div class="card">
-      <p>Seasoned data‑driven strategist with 15+ years leading analytics and innovation initiatives across tech and research domains. Passionate about translating cutting‑edge AI into practical workflow improvements. Proven record of delivering data products, crafting evidence‑based insights for executive decision‑making, and mentoring teams at the intersection of data science and business value.</p>
-    </div>
+    <p>Seasoned data‑driven strategist with 15+ years leading analytics and innovation initiatives across tech and research sectors. Specialises in translating cutting‑edge AI into practical workflow improvements, delivering data products and evidence‑based insights for executive decision‑making while mentoring interdisciplinary teams.</p>
   </section>
 
   <!-- ========== COURSE OVERVIEW ========== -->
@@ -95,43 +100,43 @@
       <div class="module">
         <h3>Documents, Presentations & Websites</h3>
         <p>Create high‑quality reports, papers, and no‑code sites with LLMs.</p>
-        <div class="tooltip">Generate polished documents, slide decks, and websites using prompt engineering, Markdown, and AI design tools.</div>
+        <div class="tooltip">Generate polished documents, slide decks, and websites using prompt engineering, Markdown best‑practices, and AI‑driven design tools.</div>
       </div>
       <!-- Module 2 -->
       <div class="module">
         <h3>Automated Data Analysis</h3>
-        <p>Clean, visualize & report data with ChatGPT Code Interpreter, Julius & Windsurf.</p>
-        <div class="tooltip">Master AI‑powered data wrangling, visualization dashboards, and automated reporting pipelines.</div>
+        <p>Clean, visualise & report data with Code Interpreter, Julius & Windsurf.</p>
+        <div class="tooltip">Master AI‑powered data wrangling, interactive dashboards, and automated reporting pipelines for faster decision support.</div>
       </div>
       <!-- Module 3 -->
       <div class="module">
         <h3>GenAI for Research & Text Analysis</h3>
-        <p>AI‑assisted literature reviews, summarization, sentiment & text classification.</p>
-        <div class="tooltip">Leverage Elicit, LiteRev, and custom models for knowledge synthesis and deep text insights.</div>
+        <p>AI‑assisted literature reviews, summarisation & sentiment analysis.</p>
+        <div class="tooltip">Harness Elicit and LiteRev to surface key papers, then deploy LLMs for extraction, classification, and synthesis of insights.</div>
       </div>
       <!-- Module 4 -->
       <div class="module">
         <h3>Custom GPTs & Chatbots</h3>
         <p>Design RAG systems and API‑integrated assistants for your team.</p>
-        <div class="tooltip">Build domain‑specific chatbots with knowledge bases and Botpress workflows.</div>
+        <div class="tooltip">Build domain‑specific chatbots with knowledge bases, Botpress workflows, and seamless third‑party integrations.</div>
       </div>
       <!-- Module 5 -->
       <div class="module">
         <h3>AI Workflows & Task Automation</h3>
         <p>Reclaim hours by integrating Lindy, Make.com & Gmail API.</p>
-        <div class="tooltip">Automate repetitive tasks, email triage, and cross‑platform actions with no‑code orchestration.</div>
+        <div class="tooltip">Automate repetitive tasks, email triage, and cross‑platform actions with low‑/no‑code orchestration.</div>
       </div>
       <!-- Module 6 -->
       <div class="module">
         <h3>GenAI for Communication & Outreach</h3>
         <p>Create impactful visuals, videos, and marketing assets.</p>
-        <div class="tooltip">Use Ideogram, InVideo, and AI‑driven content scheduling for brand awareness.</div>
+        <div class="tooltip">Use Ideogram, InVideo, and AI‑driven content scheduling to amplify your research or brand message.</div>
       </div>
       <!-- Module 7 -->
       <div class="module">
         <h3>Capstone Project & Showcase</h3>
         <p>Design, build & present a real‑world AI solution.</p>
-        <div class="tooltip">Scope your project, integrate multiple tools, and demo results to peers.</div>
+        <div class="tooltip">Scope your problem, integrate multiple tools, iterate with instructor feedback, and demo results to peers.</div>
       </div>
     </div>
   </section>
@@ -152,14 +157,13 @@
     </div>
   </section>
 
-  <!-- ========== JS FOR SMALL INTERACTIONS ========== -->
+  <footer>
+    © <span id="year"></span> Oliver Morgan · Generative AI for Work & Research
+  </footer>
+
   <script>
-    // Elevate hero on scroll (subtle parallax)
-    const hero = document.getElementById('hero');
-    window.addEventListener('scroll', () => {
-      const offset = window.pageYOffset;
-      hero.style.backgroundPositionY = offset * 0.4 + 'px';
-    });
+    // Dynamic year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
